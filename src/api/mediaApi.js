@@ -27,7 +27,7 @@ export async function fetchVideos(query, perPage=15) {
 }
 
 // Fetch GIFs from Tenor API
-export async function fetchGifs(query, Limit=20) {
+export async function fetchGIFs(query, Limit=20) {
     const res = await axios.get('https://tenor.googleapis.com/v2/search', {
         params: {q:query, key:tenorApi, Limit}
     })
