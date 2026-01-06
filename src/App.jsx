@@ -1,15 +1,23 @@
 import './App.css'
-import ResultGrid from './components/ResultGrid.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import Tabs from './components/Tabs.jsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import HomePage from './home/HomePage.jsx'
+import CollectionPage from './home/CollectionPage.jsx'
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <HomePage/>
+    },
+    {
+      path: '/collection',
+      element: <CollectionPage/>
+    }
 
+  ])
   return (
-    <div className='h-screen w-full bg-gray-950 text-white'>
-     <SearchBar/>
-     <Tabs/>
-     <ResultGrid/>
+    <div className='min-h-screen w-full bg-gray-950 text-white'>
+      <RouterProvider router={router}/>
     </div>
   )
 }
