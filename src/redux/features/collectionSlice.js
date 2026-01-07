@@ -75,6 +75,6 @@ export const {
   clearCollection,
   addedToast,
   removeToast,
-  removeAllToast
+  removeAllToast,
 } = collectionSlice.actions;
 export default collectionSlice.reducer;

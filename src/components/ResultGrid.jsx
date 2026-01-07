@@ -31,11 +31,10 @@ const ResultGrid = () => {
             type: "photo",
             title: item.alt_description || "Photo",
             thumbnail: item.urls.small,
-            src: item.urls.full,
+            src: item.urls.small,
             url: item.links.html,
           }));
-        } 
-        else if (activeTab === "videos") {
+        } else if (activeTab === "videos") {
           const response = await fetchVideos(searchTerm);
           data = response.videos.map((item) => ({
             id: item.id,
@@ -45,8 +44,7 @@ const ResultGrid = () => {
             src: item.video_files?.[0]?.link,
             url: item.url,
           }));
-        } 
-        else if (activeTab === "gifs") {
+        } else if (activeTab === "gifs") {
           const response = await fetchGIFs(searchTerm);
           data = response.data.results.map((item) => ({
             id: item.id,
@@ -76,12 +74,17 @@ const ResultGrid = () => {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-5 p-2 overflow-auto h-auto">
+    <div
+      className="grid 
+    grid-cols-1
+    sm:grid-cols-2
+    md:grid-cols-3
+    lg:grid-cols-4
+    gap-6
+    p-1.5 m-2.5"
+    >
       {results.map((item) => (
-        <ResultCard
-          key={`${item.type}-${item.id}`}
-          item={item}
-        />
+        <ResultCard key={`${item.type}-${item.id}`} item={item} />
       ))}
     </div>
   );

@@ -12,7 +12,6 @@ function App() {
         <Navbar/>
          <HomePage/>
       </div>
-     
     },
     {
       path: '/collection',
@@ -21,10 +20,9 @@ function App() {
          <CollectionPage/>
       </div>
     }
-
   ])
   return (
-    <div className='min-h-screen w-full bg-gray-950 text-white'>
+    <div className='min-h-screen w-full bg-slate-950 text-white'>
       <RouterProvider router={router}/>
 
       <ToastContainer/>
