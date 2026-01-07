@@ -1,12 +1,13 @@
-import { useDispatch } from "react-redux";
-import { addedToast, addToCollection } from "../redux/features/collectionSlice";
-const ResultCard = ({ item }) => {
+import React from 'react'
+import { useDispatch } from 'react-redux';
+import { removeFromCollection, removeToast } from '../redux/features/collectionSlice';
+
+const CollectionCard = ({ item }) => {
     const dispatch = useDispatch();
 
-    const handleAddToCollection = (item) => {
-      dispatch(addToCollection(item));
-      dispatch(addedToast())
-      
+    const handleRemoveFromCollection = (item) => {
+        dispatch(removeFromCollection(item))
+        dispatch(removeToast())
     }
 
   return (
@@ -47,12 +48,13 @@ const ResultCard = ({ item }) => {
             className="text-white text-lg font-semibold h-14 overflow-hidden">
                {item.title}
             </h3>   
-            <button onClick={() => handleAddToCollection(item)}
+            <button onClick={() => handleRemoveFromCollection(item)}
             className="bg-indigo-600 text-white px-3 py-2 m-4 font-medium rounded hover:bg-indigo-500 cursor-pointer active:scale-90">
-                Save
+                Remove
             </button>
         </div>
     </div>
-  );
-};
-export default ResultCard;
+  )
+}
+
+export default CollectionCard

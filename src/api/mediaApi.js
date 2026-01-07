@@ -5,9 +5,9 @@ const pexelsApi = import.meta.env.VITE_PEXELS_KEY;
 const tenorApi = import.meta.env.VITE_TENOR_KEY;
 
 // Fetch photos from Unsplash API
-export async function fetchPhotos(query, page=1, perPage=30) {
+export async function fetchPhotos(query, page=1, perPage=20) {
     const res = await axios.get('https://api.unsplash.com/search/photos', {
-        params: {query, page, perPage},
+        params: {query, page, per_page: perPage},
         headers: {
             Authorization: `Client-ID ${unsplashApi}`
         }
@@ -16,9 +16,9 @@ export async function fetchPhotos(query, page=1, perPage=30) {
 }
 
 // Fetch videos from Pexels API
-export async function fetchVideos(query, perPage=15) {
+export async function fetchVideos(query, perPage=16) {
     const res = await axios.get('https://api.pexels.com/videos/search', {
-        params: {query, perPage},
+        params: {query, per_page: perPage},
         headers: {
             Authorization:pexelsApi
         }

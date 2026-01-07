@@ -1,18 +1,18 @@
-import SearchBar from '../components/SearchBar'
-import Tabs from '../components/Tabs'
-import ResultGrid from '../components/ResultGrid'
+import SearchBar from "../components/SearchBar";
+import Tabs from "../components/Tabs";
+import ResultGrid from "../components/ResultGrid";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
+  const { query } = useSelector((store) => store.search);
   return (
     <div>
-    <h1 className='p-6 text-2xl bg-blue-800 font-bold text-center'>
-      Media Search
-    </h1>
-     <SearchBar/>
-     <Tabs/>
-     <ResultGrid/>
+      <SearchBar />
+      <Tabs />
+      <ResultGrid />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
