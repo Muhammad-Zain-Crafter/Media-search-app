@@ -9,14 +9,14 @@ function App() {
     {
       path: '/',
       element: <div>
-        <Navbar/>
+         <Navbar/>
          <HomePage/>
       </div>
     },
     {
       path: '/collection',
       element: <div>
-        <Navbar/>
+         <Navbar/>
          <CollectionPage/>
       </div>
     }
